@@ -44,12 +44,12 @@ export default class App extends Component {
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1>Contador Regressivo</h1>
-					<p>
+					<h2>
 						{this.state.days} dias {''}
 						{this.state.hours} horas {''}
 						{this.state.minutes} minutos {''}
 						{this.state.seconds} segundos
-					</p>
+					</h2>
 				</header>
 			</div>
 		)
