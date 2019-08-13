@@ -50,6 +50,9 @@ export default class App extends Component {
 						{this.state.minutes} minutos {''}
 						{this.state.seconds} segundos
 					</h2>
+					<blockquote className="Version">
+						<small>v0.0.2</small>
+					</blockquote>
 				</header>
 			</div>
 		)
