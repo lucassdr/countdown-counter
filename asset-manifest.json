@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/countdown-counter/static/css/main.3e75e0f4.chunk.css",
+    "main.js": "/countdown-counter/static/js/main.dee45598.chunk.js",
+    "main.js.map": "/countdown-counter/static/js/main.dee45598.chunk.js.map",
+    "runtime~main.js": "/countdown-counter/static/js/runtime~main.82c664b0.js",
+    "runtime~main.js.map": "/countdown-counter/static/js/runtime~main.82c664b0.js.map",
+    "static/js/2.6efc73d3.chunk.js": "/countdown-counter/static/js/2.6efc73d3.chunk.js",
+    "static/js/2.6efc73d3.chunk.js.map": "/countdown-counter/static/js/2.6efc73d3.chunk.js.map",
+    "index.html": "/countdown-counter/index.html",
+    "precache-manifest.df77acfccb4ea369e5796dfaabf45119.js": "/countdown-counter/precache-manifest.df77acfccb4ea369e5796dfaabf45119.js",
+    "service-worker.js": "/countdown-counter/service-worker.js",
+    "static/css/main.3e75e0f4.chunk.css.map": "/countdown-counter/static/css/main.3e75e0f4.chunk.css.map",
+    "static/media/logo.svg": "/countdown-counter/static/media/logo.5d5d9eef.svg"
+  }
+}
