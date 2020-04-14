@@ -1,41 +1,48 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import axios from 'axios'
 
 export default class App extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+		this.state = { value: null }
+
+		this.getDolar = this.getDolar.bind(this)
 	}
 
-	tick() {
-		let countdownDate = new Date('Sep 29, 2020 18:45:00').getTime()
+	getDolar() {
+		const day = new Date().getDay()
+		const month = new Date().getMonth()
+		const year = new Date().getFullYear()
+		axios
+			.get(
+				`https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27${month}-${day}-${year}%27&$top=1&$skip=0&$format=json`
+			)
+			.then(
+				response =>
+					this.setState({
+						value: response.data.value[0]['cotacaoCompra']
+					})
+				// console.log(
+				// 	'cotacaoCompra',
+				// 	response.data.value[0]['cotacaoCompra']
+				// )
+			)
 
-		let now = new Date().getTime()
+		// let valorReal
+		// let valorDolarHoje = this.state.value
 
-		let distance = countdownDate - now
+		// console.log('valorDolar', this.state.value)
+		this.converter()
 
-		let days = Math.floor(distance / (1000 * 60 * 60 * 24))
-		let hours = Math.floor(
-			(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-		)
-		let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-		let seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-		this.setState({
-			days: days,
-			hours: hours,
-			minutes: minutes,
-			seconds: seconds
-		})
+		return
 	}
 
-	componentDidMount() {
-		this.interval = setInterval(() => this.tick(), 1000)
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.interval)
+	converter(valor) {
+		console.log('dolar')
+		valor = this.state.value
+		return valor
 	}
 
 	render() {
@@ -43,13 +50,13 @@ export default class App extends Component {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1>Contador Regressivo</h1>
-					<h2>
-						{this.state.days} dias {''}
-						{this.state.hours} horas {''}
-						{this.state.minutes} minutos {''}
-						{this.state.seconds} segundos
-					</h2>
+					<h1>Conversor de moedas</h1>
+					<h2>{this.state.value}</h2>
+					{/* <input type="submit" onClick={this.converter} /> */}
+					<button className="button" onClick={this.getDolar}>
+						Clique aqui
+					</button>
+
 					<blockquote className="Version">
 						<small>v0.0.2</small>
 					</blockquote>
